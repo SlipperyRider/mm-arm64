@@ -1,0 +1,23 @@
+version: "3"
+services:
+  mattermost:
+    image: localhost/mattermost-nya:latest
+    container_name: mattermost-containya
+    restart: always
+
+#    ports:
+#      - "8065:8065"
+
+    volumes:
+      - nginx-certific8s:/mm/mattermost/certs:ro
+
+    networks:
+      - containya-network
+
+volumes:
+  nginx-certific8s:
+    external: true
+
+networks:
+  containya-network:
+    external: true
