@@ -20,8 +20,8 @@ WORKDIR /mm
 
 # Copy over files
 RUN apt-get install tar
-ADD https://releases.mattermost.com/8.0.0/mattermost-team-8.0.0-linux-arm64.tar.gz .
-RUN tar -zxvf mattermost-team-8.0.0-linux-arm64.tar.gz
+ADD https://releases.mattermost.com/8.0.1/mattermost-team-8.0.1-linux-arm64.tar.gz .
+RUN tar -zxvf mattermost-team-8.0.1-linux-arm64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
 
