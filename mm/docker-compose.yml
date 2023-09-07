@@ -9,10 +9,21 @@ services:
 #      - "8065:8065"
 
     volumes:
-      - ./config_docker.json:/mm/mattermost/config/config_docker.json
-      - nginx-certific8s:/mm/mattermost/certs:ro
-      - mm-mattermost-data:/mm/mattermost-data
-      - mm-postgresql-data:/var/lib/postgresql/data
+      - type: bind
+        source: ./config_docker.json
+        target: /mm/mattermost/config/config_docker.json
+
+      - type: volume
+        source: nginx-certific8s
+        target: /mm/mattermost/certs:ro
+
+      - type: volume
+        source: mm-mattermost-data
+        target: /mm/mattermost-data
+
+      - type: volume
+        source: mm-postgresql-data
+        target: /var/lib/postgresql/data
 
     networks:
       - containya-network
