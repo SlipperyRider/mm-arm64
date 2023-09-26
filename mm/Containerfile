@@ -1,6 +1,6 @@
 # Copyright (c) 2016-present Mattermost, Inc. All Rights Reserved.
 # See License.txt for license information.
-FROM postgres:12
+FROM postgres:16.0-bookworm
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 RUN apt-get update && apt-get install -y ca-certificates
@@ -20,8 +20,8 @@ WORKDIR /mm
 
 # Copy over files
 RUN apt-get install tar
-ADD https://releases.mattermost.com/8.1.1/mattermost-team-8.1.1-linux-arm64.tar.gz .
-RUN tar -zxvf mattermost-team-8.1.1-linux-arm64.tar.gz
+ADD https://releases.mattermost.com/8.1.2/mattermost-team-8.1.2-linux-arm64.tar.gz .
+RUN tar -zxvf mattermost-team-8.1.2-linux-arm64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
 
